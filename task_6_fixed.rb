@@ -13,22 +13,19 @@ WrongNumberOfPlayersError;
 
 
 RPS = %w[R P S]
+
 class NoSuchStrategyError< StandardError
 end
 
-def rps_game_winner(arr)
-begin
-raise ArgumentError if(arr.size<=1 or arr.size>2)
-  arr.each{|t| raise NoSuchStrategyError if !(RPS.include?t[1])}
-      rescue ArgumentError
-       "WrongNumberOfPlayersError"
-       rescue NoSuchStrategyError
-       "NoSuchStrategyError"
-       else
-          x = arr[0]
-          y = arr[1]
- ((x[1]=="R" and y[1] == "S") or (x[1] =="P" and y[1] =="R") or (x[1]=="S" and y[1] == "P") or x[1] == y[1]) ?  x : y 
-     end     
+class WrongNumberOfPlayersError< ArgumentError
+end
+
+def rps_game_winner(array)
+  fail WrongNumberOfPlayersError if (array.size <= 1 || array.size > 2)
+  array.each{ |strategy| fail NoSuchStrategyError if !(RPS.include?(strategy[1])) }
+  hash = { "R" => "S", "P" =>"R", "S" =>"P" }
+  hash.each{ |a, b| return array[0] if array[0][1] == a  && array[1][1] == b }
+  array[1]
 end
 
 
