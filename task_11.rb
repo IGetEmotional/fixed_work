@@ -6,21 +6,19 @@ calories, конструктором, принимающим на вход name 
 =end
 
 class Dessert
-    attr_accessor:name, :calories
-   def initialize(name, calories) 
-       @name = name
-       @calories = calories
-    end
+  attr_accessor :name, :calories
+  def initialize(name, calories) 
+    @name = name
+    @calories = calories
+  end
 
-    def healthy?
-        return true if self.calories <200
-            return false
-    end
+  def healthy?
+    return calories < 200
+  end
     
-    def delicious?
-        true
-    end
-    
+  def delicious?
+    true
+  end    
 end
 
 p = Dessert.new("Napoleo", 550)
