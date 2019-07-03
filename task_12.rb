@@ -6,43 +6,36 @@
 =end
 
 class Dessert
-    attr_accessor:name, :calories
-   def initialize(name, calories) 
-       @name = name
-       @calories = calories
-    end
+  attr_accessor :name, :calories
+  def initialize(name, calories) 
+    @name = name
+    @calories = calories
+  end
     
-    def healthy?
-        return true if self.calories <200
-            return false
-        
-    end
+  def healthy?
+    return calories <200
+  end
     
-    def delicious?
-        return true
-    end
+  def delicious?
+    return true
+  end
 end
 
 class JellyBean < Dessert
-    attr_accessor:flavor
-    def initialize(name, calories, flavor)
+  attr_accessor:flavor
+  def initialize(name, calories, flavor)
     super(name, calories)
-        @flavor = flavor
-    end
+    @flavor = flavor
+  end
 
-   def delicious?
-    return false  if self.flavor == "black licorice"
-          super
-   end
+  def delicious?
+    !(flavor == "black licorice")
+  end
 end
     
-
-
-
-
 p = JellyBean.new("Napoleo", 550, "black licorice")
-puts p.delicious?
+p p.delicious?
 p.flavor = "Nothing"
-puts p.delicious?
+p p.delicious?
 p p.name
 
