@@ -9,6 +9,7 @@ def coincidence(array = nil,range = nil)
   unless array.nil? ||
          range.nil?
     array.select{ |x| range.include?(x) }
+  end
 end
 
 
