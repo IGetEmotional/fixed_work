@@ -6,19 +6,18 @@
 
 
 def sort_array(array = nil)
-return nil if array == nil
-min = array.min
-max = array.max
-array.map{|x|
-case x
-when min
-x = max
-when max
-x = min
-else
-x
-end
-}<<min
+  return if array.nil?
+  min, max = array.min, array.max
+  array.map{|x|
+    case x
+    when min
+      x = max
+    when max
+      x = min
+    else
+      x
+    end
+  } << min
 end
 
 
