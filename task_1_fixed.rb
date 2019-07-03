@@ -5,14 +5,16 @@
 =end
 
 def palindrome?(string = nil)
-case string
-when String
-string.downcase!.gsub!(/[^A-Za-z0-9]/, "")==string.reverse
-when Integer
-string.to_s==string.digits*''
-else
-false
-end
+  case string
+  when String
+    string.gsub(/[^A-Za-z0-9]/, "")
+          .downcase ==   
+    string.gsub(/[^A-Za-z0-9]/, "")
+          .downcase
+          .reverse
+  else
+    false
+  end
 end
 
 p palindrome?("Madam, I'm Adam!")
