@@ -5,24 +5,14 @@
 
 
 def count_words(str)
-hash = {}
-str = str.downcase!.split(" ").each{|x| x.gsub!(/[^A-Za-z]/,'')}.delete_if{|word| word.empty?}
-    until str.empty? do
-             check = str[0]
-             count = 0
-             str.each{|y| count+=1 if y == check}
-             stat = {}
-             stat.store(check,count)
-             hash.merge!(stat)
-             str.delete_if{|y| y == check}
-             end
-hash
+  hash = {}
+  str = str.downcase!.split(" ").each{ |x| x.gsub!(/[^A-Za-z]/,'') }
+  str.delete_if{ |word| word.empty? }
+     .each{ |x| hash[x] = str.count(x) }
+  hash
 end
 
-
-#puts count_words("A man, a plan, a canal -- Panama")
-
 str = "A man, a plan, a canal -- Panama"
- puts count_words(str)
- str = "Doo bee doo bee doo"
- puts count_words(str)
+p count_words(str)
+str = "Doo bee doo bee doo"
+p count_words(str)
