@@ -6,9 +6,9 @@ range) для определения элементов из массива arra
 =end
 
 def coincidence(array = nil,range = nil)
-return_arr = []
-return return_arr if array == nil or range == nil
-return_arr = array.select{|x| range.include?(x)}
+  unless array.nil? ||
+         range.nil?
+    array.select{ |x| range.include?(x) }
 end
 
 
