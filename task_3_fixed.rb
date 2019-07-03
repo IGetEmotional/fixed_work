@@ -5,10 +5,13 @@ max_odd(array), который определит максимальный не�
 =end
 
 def max_odd(array = nil)
-return nil if array == nil
-max_odd = array.select{|x| x.class == Integer or x.class == Float and x%2!=0}.max
+  unless array.nil?
+    array.select{ |x| (x.kind_of?(Numeric)) && 
+                      (x == x.to_i) &&
+                      (x % 2 != 0) }
+         .max
+  end
 end
-
 
 p max_odd([1, 2, 3, 4, 4])
 p max_odd([21.0, 2, 3, 4, 4])
