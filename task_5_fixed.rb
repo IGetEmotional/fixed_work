@@ -14,7 +14,7 @@ require 'active_support/core_ext/numeric/time'
 
 
 def date_in_future(dayz = 0)
-  Time.now + ((dayz.is_a?(Integer))? dayz.days : 0)
+  Time.current + ((dayz.is_a?(Integer))? dayz.days : 0)
 end
 
 puts date_in_future(12)
