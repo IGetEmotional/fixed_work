@@ -5,13 +5,10 @@
 =end
 
 def palindrome?(string = nil)
-  case string
-  when String
-    string.gsub(/[^A-Za-z0-9]/, "")
-          .downcase ==   
-    string.gsub(/[^A-Za-z0-9]/, "")
+  if string.is_a? String
+    new_str = string.gsub(/[^A-Za-z0-9]/, "")
           .downcase
-          .reverse
+    new_str == new_str.reverse     
   else
     false
   end
