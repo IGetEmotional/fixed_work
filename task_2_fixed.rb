@@ -5,11 +5,8 @@ range) для определения элементов из массива arra
 вернуться пустой массив.
 =end
 
-def coincidence(array = nil,range = nil)
-  unless array.nil? ||
-         range.nil?
-    array.select{ |x| range.include?(x) }
-  end
+def coincidence(array = [],range = ())
+  array.select{ |x| range.include?(x) }
 end
 
 
