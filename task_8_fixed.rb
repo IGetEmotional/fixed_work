@@ -6,7 +6,7 @@
 def multiply_numbers(input = nil)
   num = input.to_s
              .gsub(/\D/,"")
- unless num.empty? 
+  unless num.empty? 
     num.to_i.digits.reduce(:*)
   end   
 end
