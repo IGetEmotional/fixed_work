@@ -13,7 +13,7 @@ class Dessert
   end
 
   def healthy?
-    return calories < 200
+    calories < 200
   end
     
   def delicious?
