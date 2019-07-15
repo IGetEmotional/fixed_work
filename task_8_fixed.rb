@@ -6,12 +6,8 @@
 def multiply_numbers(input = nil)
   num = input.to_s
              .gsub(/\D/,"")
-  if !num.empty? 
-    value = 1
-    num.to_i
-       .digits   
-       .each{ |x| value*=x}
-    value
+ unless num.empty? 
+    num.to_i.digits.reduce(:*)
   end   
 end
   
