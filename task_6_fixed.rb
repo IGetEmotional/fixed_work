@@ -21,7 +21,7 @@ class WrongNumberOfPlayersError< ArgumentError
 end
 
 def rps_game_winner(array)
-  fail WrongNumberOfPlayersError if (array.size <= 1 || array.size > 2)
+  fail WrongNumberOfPlayersError if (array.size != 2)
   array.each{ |strategy| fail NoSuchStrategyError unless RPS.include?(strategy[1]) }
   hash = { "R" => "S", "P" =>"R", "S" =>"P" }
   hash.each{ |a, b| return array[0] if array[0][1] == a  && array[1][1] == b }
